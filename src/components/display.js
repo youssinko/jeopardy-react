@@ -2,10 +2,11 @@ import { useState , useEffect } from 'react';
 
 export default function Display(props){
   const [toggle, setToggle] = useState(false);
-  const [random, setRandom] = useState("null")
+  const [random, setRandom] = useState(null)
   const [count, setCount] = useState(0)
   const url = `https://jservice.io/api/random`
 const points = 100
+
   const handleIncrement =()=>{
     setCount(count+ points )
 }
@@ -25,7 +26,9 @@ const handleReset =()=>{
       const data = await response.json()
       setRandom(data)
       setToggle(false)
-    //   console.log(data[0].question)
+  
+    
+    
     }catch(error){
       console.log(error)
     }
@@ -45,6 +48,7 @@ const handleClick =()=>{
             <div>
                  <span>
             Score:{count}
+            
         </span>
         <section>
         <button onClick={handleIncrement} className='increase'>Increase</button>
