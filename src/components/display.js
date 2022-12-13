@@ -5,14 +5,15 @@ export default function Display(props){
   const [random, setRandom] = useState(null)
   const [count, setCount] = useState(0)
   const url = `https://jservice.io/api/random`
-const points = 100
+
 
   const handleIncrement =()=>{
-    setCount(count+ points )
+    setCount(count + random[0].value )
+    console.log(random[0].value)
 }
 const handleDecrement =()=>{
     if(count !== 0){
-        setCount(count - points)
+        setCount(count - random[0].value)
     }
 
 }
@@ -58,7 +59,7 @@ const handleClick =()=>{
         <h2>Let's Play!</h2>
             <button onClick={getRandom} className='get'>Get Question</button>
             <h2>Category: {random[0].category.title}</h2>
-            <h2>Points:{points}</h2>
+            <h2>Points:{random[0].value}</h2>
            
             <h2>Answer: {random[0].question}</h2>
             <button onClick={handleClick} className='reveal'>Click To Reveal Question</button>
